@@ -1,0 +1,27 @@
+$font: "Montserrat", sans-serif;
+$desktop-bg-path: "../img/psx_background_desktop.svg";
+$mobile-bg-path:  "../img/psx_background_mobile.svg";
+$bg-color: #2d2d74;
+
+html {
+    background-color: $bg-color;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: top;
+    background-size: 100vw 100vh;
+    font-family: "Montserrat", sans-serif;
+    max-width: 100vw;
+}
+
+@media (orientation: landscape) {
+    html {
+        background-image: url($desktop-bg-path);
+    }
+}
+
+@media (orientation: portrait) {
+    html {
+        background-image: url($mobile-bg-path);
+    }
+}
+

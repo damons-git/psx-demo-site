@@ -1,0 +1,39 @@
+{
+  "name": "psx-demo-site",
+  "version": "1.0.0",
+  "description": "PSX Bluetooth controller construction demo website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --mode development --open",
+    "build": "rimraf ./build && webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damons-git/psx-demo-site.git"
+  },
+  "author": "Damon M. Sweeney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damons-git/psx-demo-site/issues"
+  },
+  "homepage": "https://github.com/damons-git/psx-demo-site#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.6.0",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "rimraf": "^3.0.2",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
