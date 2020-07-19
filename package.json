@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/damons-git/psx-demo-site#readme",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0"
   },
   "devDependencies": {
     "babel-loader": "^8.1.0",
