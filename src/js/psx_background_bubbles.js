@@ -1,7 +1,4 @@
 const psx_bubble_svg = document.getElementById("psx_bubble")
-const spawn_number = 6
-const max_diameter = 300
-const min_diameter = 100
 
 
 // Create a new background bubble svg and append to body
@@ -26,11 +23,16 @@ function removeAllBubbles() {
     for (let i = 0; i < bubbles.length; i++) {
         bubbles[i].parentNode.removeChild(bubbles[i])
     }
+    removed = true;
 }
 
 
 // Return a radius size between the defined minimum and maximum
 function getDiameter() {
+    let longestSide = (window.innerWidth > window.innerHeight) ? window.innerWidth : window.innerHeight
+    console.log(longestSide)
+    let max_diameter = Math.floor(longestSide / 4)
+    let min_diameter = Math.floor(longestSide / 8)
     let diameter = Math.floor(Math.random() * (max_diameter - min_diameter) + min_diameter)
     return diameter
 }
