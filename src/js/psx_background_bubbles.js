@@ -7,7 +7,7 @@ function createBubble(x, y, diameter) {
     bubble.removeAttribute("id", "")
     bubble.setAttribute("class", "dynamic-bubble")
 
-    let pos = `position: absolute; left: ${x}px; top: ${y}px; z-index: -1`
+    let pos = `position: fixed; left: ${x}px; top: ${y}px; z-index: -1`
     bubble.setAttribute("width", diameter)
     bubble.setAttribute("height", diameter)
     bubble.setAttribute("style", pos)
