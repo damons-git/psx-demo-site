@@ -4,10 +4,11 @@ const max_diameter = 300
 const min_diameter = 100
 
 
+// Create a new background bubble svg and append to body
 function createBubble(x, y, diameter) {
     let bubble = psx_bubble_svg.cloneNode()
     bubble.removeAttribute("id", "")
-    bubble.setAttribute("class", "dynamic_bubble")
+    bubble.setAttribute("class", "dynamic-bubble")
 
     let pos = `position: absolute; left: ${x}px; top: ${y}px;`
     bubble.setAttribute("width", diameter)
@@ -19,6 +20,15 @@ function createBubble(x, y, diameter) {
 }
 
 
+// Remove all dynamically generated bubble elements from the document body
+function removeAllBubbles() {
+    let bubbles = document.getElementsByClassName('dynamic-bubble')
+    for (let i = 0; i < bubbles.length; i++) {
+        bubbles[i].parentNode.removeChild(bubbles[i])
+    }
+}
+
+
 // Return a radius size between the defined minimum and maximum
 function getDiameter() {
     let diameter = Math.floor(Math.random() * (max_diameter - min_diameter) + min_diameter)
@@ -26,7 +36,7 @@ function getDiameter() {
 }
 
 
-// Given a position map returns a set of coordinates that
+// Given a posidntion map returns a set of coordinates that
 // are within the specified bounds.
 function getPositions(posMap) {
     let devWidth = window.innerWidth
@@ -110,18 +120,28 @@ function genPortraitPosMap() {
 }
 
 
-// On page load
-window.addEventListener('load', () => {
+// Load background image
+function loadBG() {
+    let posMap;
+    if (window.innerHeight > window.innerWidth) {
+        posMap = genPortraitPosMap()
+    } else {
+        posMap = genLandscapePosMap()
+    }
 
-    let port = genPortraitPosMap()
-    let land = genLandscapePosMap()
-
-    let posArr = getPositions(port)
-    console.log(posArr)
-
+    let posArr = getPositions(posMap)
     posArr.forEach(pos => {
         let diameter = getDiameter()
         createBubble(pos[0] - diameter/2, pos[1] - diameter/2, diameter)
     })
+}
 
+
+window.addEventListener('load', () => {
+    loadBG()
+})
+
+window.addEventListener('resize', () => {
+    removeAllBubbles()
+    loadBG()
 })
