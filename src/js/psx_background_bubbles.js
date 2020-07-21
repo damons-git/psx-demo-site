@@ -1,4 +1,4 @@
-const psx_bubble_svg = document.getElementById("psx_bubble")
+const psx_bubble_svg = document.getElementById("psx-bubble")
 
 
 // Create a new background bubble svg and append to body
@@ -12,7 +12,7 @@ function createBubble(x, y, diameter) {
     bubble.setAttribute("height", diameter)
     bubble.setAttribute("style", pos)
 
-    let body = document.querySelector("body")
+    let body = document.querySelector("html")
     body.appendChild(bubble)
 }
 
